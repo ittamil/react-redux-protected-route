@@ -10,14 +10,14 @@ import PrivateRoutes from './PrivateRoute'
 const App = () => {
   return (
     <Router>
-      <Header />
       <Routes>
         <Route element={<PrivateRoutes/>}>
+        <Header />
         <Route path="/" element={<Dashboard />} exact />
+        <Footer />
         </Route>
         <Route path="/login" element={<Login />} exact />
       </Routes>
-      <Footer />
     </Router>
   )
 }

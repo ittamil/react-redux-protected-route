@@ -25,7 +25,7 @@ function Login() {
     const res = validateLogin(username, password)
     if (res === true) {
       dispatch(login())
-      // history('/dashboard')
+      history('/')
     } else {
       alert('Wrong username and password')
     }
