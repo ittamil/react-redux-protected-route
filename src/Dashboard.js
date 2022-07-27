@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 function Dashboard() {
   const [data, setData] = useState('')
@@ -18,6 +20,7 @@ function Dashboard() {
     })
   return (
     <div>
+      <Header />
       {loading ? (
         <></>
       ) : (
@@ -41,6 +44,7 @@ function Dashboard() {
           </tbody>
         </table>
       )}
+      <Footer />
     </div>
   )
 }
