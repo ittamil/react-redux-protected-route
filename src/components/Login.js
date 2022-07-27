@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import {login} from '../feature/userSlice';
-import {user} from '../user';
-
-function validateLogin(username,password){
+import { Navigate } from 'react-router'
+import { login } from '../feature/userSlice'
+import { user } from '../user'
+import { useNavigate } from 'react-router-dom'
+function validateLogin(username, password) {
   for (let i = 0; i < user.length; i++) {
-    if (user[i].username === username && user[i].password === password ) {
+    if (user[i].username === username && user[i].password === password) {
       return true
     }
   }
@@ -13,22 +14,24 @@ function validateLogin(username,password){
 }
 
 function Login() {
+  const history = useNavigate()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const handleSubmit = (e) => {
-    e.preventDefault()    
-      
-  const res = validateLogin(username,password);
-  alert(res)
-  if (res === true){
-    dispatch(login())
-  }
+    e.preventDefault()
+    const res = validateLogin(username, password)
+    if (res === true) {
+      dispatch(login())
+      // history('/dashboard')
+    } else {
+      alert('Wrong username and password')
+    }
   }
   return (
-    <div>
+    <div className="p-5">
       <div className="row">
         <div className="col-lg-4"></div>
         <div className="col-lg-4 p-5">

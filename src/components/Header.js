@@ -26,8 +26,8 @@ function Header() {
                 </Link>
               ) : (
                 <>
-                <Link className="nav-link text-white" to="/dashboard">
-                Dashbard
+                <Link className="nav-link text-white" to="/">
+                Home
               </Link>
                 <a className="nav-link text-white"  onClick={logoutHandler}>
                   Logout
